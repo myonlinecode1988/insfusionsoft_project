@@ -6,8 +6,9 @@ from google.cloud import bigquery
 
 
 def insert_to_table(rowdata):
+    """Handle Messages:Extract data. If column not present insert NULL.Using SQL query"""
+
     client = bigquery.Client()
-    
     table_name=rowdata["table"]
     timestamp=rowdata["timestamp"]
     data=rowdata["data"]
@@ -18,13 +19,14 @@ def insert_to_table(rowdata):
             outdic[key]='NULL'
         else:
             outdic[key]=data[key]
-    #print (outdic)
+
     query = ('INSERT INTO infusionsoft_dataset.{} \
 		(Timestamp,A,B,C,D,E) VALUES \
 		(Timestamp(\'{}\'),{},{},{},{},{})'.\
 		format(table_name,timestamp,outdic["A"],outdic["B"],\
 		outdic["C"],outdic["D"],outdic["E"]))
-    print (query)
+
+    print ("SQL QUERY:\n",query)
     query_job = client.query( query,location='US')
 
 
