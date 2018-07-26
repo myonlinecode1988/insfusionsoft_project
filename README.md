@@ -1,6 +1,6 @@
 # Emitter → Pub/Sub → Message Handler → BigQuery 
 
-## Youtube Demo 
+## Youtube Demo (use fullscreen) 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/CeuAMx1qpL0/0.jpg)](https://www.youtube.com/watch?v=CeuAMx1qpL0)
 
 ### Prerequisites
